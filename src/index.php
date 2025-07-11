@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 if (!isset($_SESSION["user_id"])) {
     header('Location: login.php');
     exit();
@@ -43,33 +41,6 @@ if (!isset($_SESSION["user_id"])) {
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#logoutBtn').click(function () {
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You will be logged out!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, log me out!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: 'backend/logout.php',
-                            type: 'POST',
-                            success: function (response) {
-                                window.location.href = 'login.php';
-                            }
-                        });
-                    }
-                });
-            });
-        });
-    </script>
-
 </body>
 
 </html>

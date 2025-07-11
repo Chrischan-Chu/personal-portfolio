@@ -83,19 +83,24 @@ if (isset($_SESSION["user_id"])) {
                     $('#loading-indicator').show();
                 },
                 success: function (response) {
+                if (response.status === 'success') {
                     Swal.fire({
-                        title: "Sucess!",
-                        icon: "success"
+                        title: "Success!",
+                        icon: "success",
+                        timer: 1200,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = 'home.php';
                     });
-                    window.location.href = 'index.php';
-                },
-                error: function () {
+                } else {
                     Swal.fire({
                         icon: "error",
                         title: "Oops...",
-                        text: "Incorrect Credentials",
+                        text: response.message
                     });
-                },
+                }
+        }
+
             });
         });
     </script>

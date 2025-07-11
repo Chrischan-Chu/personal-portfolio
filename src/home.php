@@ -1,6 +1,24 @@
 <!-- Navbar -->   
 <?php
-include "nav.php"
+include "nav.php";
+include "config.php";
+
+// Save if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $p1 = $_POST['paragraph1'];
+  $p2 = $_POST['paragraph2'];
+
+  $sql = "UPDATE update_about SET paragraph1 = ?, paragraph2 = ? WHERE id = 1";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("ss", $p1, $p2);
+  $stmt->execute();
+  $stmt->close();
+}
+
+// Fetch paragraph content
+$sql = "SELECT paragraph1, paragraph2 FROM update_about WHERE id = 1 LIMIT 1";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
 ?>
   <!-- Home Section -->
   <section class="d-flex container justify-content-between align-items-center py-5 my-5">
@@ -35,8 +53,8 @@ include "nav.php"
       </div>
 
       <div>
-        <a class="btn mt-4 border border-2 rounded-5 btn-outline-dark" 
-          style=background-color:#aa7eee
+        <a class="btn mt-4 border border-2 rounded-5" 
+          style=background-color:#aa7eee;
           onmouseover="this.style.backgroundColor='#6333ae';"
           onmouseout="this.style.backgroundColor='#aa7eee';" 
           href="#about">Learn More</a>
@@ -129,18 +147,33 @@ include "nav.php"
       </div>
 
       <!-- Right Content -->
-      <div class="col-lg-6 d-flex">
-        <div class="me-4" style="width: 5px; background-color: #aa7eee; border-radius: 2px;"></div>
-        <div>
-          <h2 class="fw-bold mb-4 fs-1" style="color: #aa7eee;">About Me</h2>
-          <p class="text-secondary fs-5">
-            Greetings! I'm <span class="fw-semibold text-white">Christian Ralph R. Tan</span>, a developer who loves building meaningful and visually appealing websites. 
-            I enjoy learning new things and apply them to create a better, more dynamic websites.
-          </p>
-          <p class="text-secondary fs-5">
-            Outside of coding, I enjoy eating, working out, reading manga, watching interesting shows and documentaries, 
-            playing sports and video games, listening to music, and spending time with my family & friends.
-          </p>
+      <div class="col-lg-6 d-flex align-start">
+  <div class="me-4 flex-shrink-0" style="width: 2px; height: 100%; min-height: 300px; background-color: #aa7eee; border-radius: 2px;"></div>
+  <div class="flex-grow-1">
+           <h2 class="fw-bold mb-4 fs-1" style="color: #aa7eee;">About Me</h2>
+
+   <!-- Display Mode -->
+<div id="display-mode">
+  <div id="paragraph-wrapper">
+    <p id="p1" class="text-secondary fs-5"><?= htmlspecialchars($row['paragraph1']) ?></p>
+    <p id="p2" class="text-secondary fs-5"><?= htmlspecialchars($row['paragraph2']) ?></p>
+  </div>
+
+  <?php if (isset($_SESSION['user_id'])): ?>
+    <button class="btn btn-outline-light" id="edit-button">Edit</button>
+  <?php endif; ?>
+</div>
+
+<!-- Edit Mode -->
+<form id="edit-form" style="display: none;">
+  <div id="paragraph-editor">
+    <textarea name="paragraph1" id="edit-p1" rows="4" class="form-control mb-3"><?= htmlspecialchars($row['paragraph1']) ?></textarea>
+    <textarea name="paragraph2" id="edit-p2" rows="4" class="form-control mb-3"><?= htmlspecialchars($row['paragraph2']) ?></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+</form>
+
           <div class="d-flex gap-5">
             <a class="btn border border-2 rounded-5 btn-outline-dark mt-3"
               style="background-color: #aa7eee;"
@@ -158,8 +191,50 @@ include "nav.php"
     </div>
   </section>
 
+ <script>
+function switchToEdit() {
+  document.getElementById('display-mode').style.display = 'none';
+  document.getElementById('edit-form').style.display = 'block';
+}
+
+function cancelEdit() {
+  document.getElementById('edit-form').style.display = 'none';
+  document.getElementById('display-mode').style.display = 'block';
+}
+
+// Attach edit button listener (if present)
+const editBtn = document.getElementById('edit-button');
+if (editBtn) {
+  editBtn.addEventListener('click', switchToEdit);
+}
+
+// AJAX update
+document.getElementById('edit-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const p1 = formData.get('paragraph1');
+  const p2 = formData.get('paragraph2');
+
+  fetch(window.location.href, {
+    method: 'POST',
+    body: formData
+  })
+  .then(res => res.text())
+  .then(() => {
+    // Update only the paragraph text (no structure change)
+    document.getElementById('p1').innerText = p1;
+    document.getElementById('p2').innerText = p2;
+
+    cancelEdit(); // Go back to display mode
+  })
+  .catch(error => console.error('Update failed', error));
+});
+</script>
+
+
   <!-- JS -->
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></scrip>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="script.js"></script>
 </body>

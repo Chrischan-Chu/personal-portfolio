@@ -63,13 +63,71 @@
               onmouseout="this.style.color='white';" href="projects.php">PROJECTS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" 
+            <a class="nav-link d-none d-lg-block" 
               style="color: white;"
               onmouseover="this.style.color='#aa7eee';"
               onmouseout="this.style.color='white';" href="contact.php">CONTACT</a>
+
+            <a class="nav-link d-lg-none" 
+              style="border-bottom:2px solid #aa7eee; color: white;"
+              onmouseover="this.style.color='#aa7eee';"
+              onmouseout="this.style.color='white';" href="contact.php">CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <?php
+              session_start(); 
+
+              if (isset($_SESSION['user_id'])) {
+                  echo '<a href="#" 
+                          class="btn rounded-5 ms-3 border rounded-5 "
+                          style="background-color: #aa7eee"
+                          onmouseover="this.style.backgroundColor=\'#6333ae\';"
+                          onmouseout="this.style.backgroundColor=\'#aa7eee\';"
+                          onclick="logoutConfirm()">
+                          Logout
+                        </a>';
+              } else {
+                  echo '<a href="index.php" 
+                          class="btn rounded-5 ms-3 border rounded-5 "
+                          style="background-color: #aa7eee; color: white; border: none;"
+                          onmouseover="this.style.backgroundColor=\'#6333ae\';"
+                          onmouseout="this.style.backgroundColor=\'#aa7eee\';">
+                          Login
+                        </a>';
+              }
+            ?>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+function logoutConfirm() {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You will be logged out!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Logout'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      $.ajax({
+        url: 'backend/logout.php',
+        type: 'POST',
+        success: function () {
+          window.location.href = 'home.php';
+        }
+      });
+    }
+  });
+}
+</script>
 </body>
+</html>
