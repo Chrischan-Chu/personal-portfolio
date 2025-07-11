@@ -179,7 +179,7 @@ $row = $result->fetch_assoc();
               style="background-color: #aa7eee;"
               onmouseover="this.style.backgroundColor='#6333ae';"
               onmouseout="this.style.backgroundColor='#aa7eee';"
-              href="skillscertificates.html">View Skills & Certificates</a>
+              href="skillscertificates.php">View Skills & Certificates</a>
             <a class="btn border border-2 rounded-5 btn-outline-dark mt-3"
               style="background-color: #aa7eee;"
               onmouseover="this.style.backgroundColor='#6333ae';"
