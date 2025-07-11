@@ -1,0 +1,108 @@
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    text-align: center;
+    gap: 7rem;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  section div {
+    width: 100%;
+  }
+  section .btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar .nav-link {
+    text-align: center;
+  }
+  section img {
+    width: 200px;
+    height: auto;
+  }
+  h1.fs-1, .fs-1.h1 {
+    font-size: 1.75rem;
+  }
+  h3, .h3 {
+    font-size: 1.25rem;
+  }
+  .fs-5 {
+    font-size: 1rem;
+  }
+  
+}
+
+
+.hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0px 20px rgba(170, 126, 238, 0.6);
+}
+
+
+.skill-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+.skill-card:hover {
+    transform: translateY(-5px);
+  }
+
+.skill-card h5,
+.skill-card h6 {
+    transition: color 0.3s ease;
+  }
+
+.skill-card:hover h5, 
+.skill-card:hover h6 {
+    color: #000;
+  }
+
+
+.tech-card, 
+.projects .card,
+.cert-border,
+.form-border {
+    background-color: #212529;
+    box-shadow: 0 0 15px rgba(115, 115, 115, 0.2);
+    transition: all 0.2s ease;
+  }
+
+.tech-card:hover,
+.projects .card:hover,
+.cert-border:hover,
+.form-border:hover {
+    background-color: #aa7eee;
+    transform: translateY(-5px);
+    box-shadow: 0 0 18px #6333ae;
+  }
+
+
+.cert-list ul li {
+  transition: all 0.2s ease-in-out;
+}
+.cert-list ul li:hover  {
+  color: #aa7eee;
+  transform: translateX(10px);
+}
+
+.soft-skill {
+  transition: transform 0.2s ease;
+}
+
+.soft-skill:hover {
+  transform: scale(1.25);
+}
+
+
+
