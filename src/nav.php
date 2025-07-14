@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Personal Portfolio</title>
-  <link rel="stylesheet" href="main.css">
   <link rel="icon" href="images/logo.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body class="bg-dark text-white">
@@ -80,7 +80,7 @@
               if (isset($_SESSION['user_id'])) {
                   echo '<a href="#" 
                           class="btn rounded-5 ms-3 border rounded-5 "
-                          style="background-color: #aa7eee"
+                          style="background-color: #aa7eee;"
                           onmouseover="this.style.backgroundColor=\'#6333ae\';"
                           onmouseout="this.style.backgroundColor=\'#aa7eee\';"
                           onclick="logoutConfirm()">
@@ -89,7 +89,7 @@
               } else {
                   echo '<a href="index.php" 
                           class="btn rounded-5 ms-3 border rounded-5 "
-                          style="background-color: #aa7eee; color: white; border: none;"
+                          style="background-color: #aa7eee;"
                           onmouseover="this.style.backgroundColor=\'#6333ae\';"
                           onmouseout="this.style.backgroundColor=\'#aa7eee\';">
                           Login
@@ -109,25 +109,50 @@
 <script>
 function logoutConfirm() {
   Swal.fire({
-    title: 'Are you sure?',
+    title: '<span style="color: #fff;">Are you sure?</span>',
     text: 'You will be logged out!',
     icon: 'warning',
+    iconColor: '#ffcc00',
+    background: '#2c2c2e',
+    color: '#ffffff',
     showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Logout'
+    confirmButtonColor: '#6333ae',
+    cancelButtonColor: '#aa7eee',
+    confirmButtonText: 'Logout',
+    cancelButtonText: 'Cancel',
+    customClass: {
+      popup: 'swal-custom-popup',
+      title: 'swal-custom-title',
+      content: 'swal-custom-text'
+    }
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
         url: 'backend/logout.php',
         type: 'POST',
         success: function () {
-          window.location.href = 'home.php';
+          Swal.fire({
+            title: '<span style="color: #fff;">Logged Out</span>',
+            icon: 'success',
+            iconColor: '#aa7eee',
+            background: '#2c2c2e',
+            color: '#ffffff',
+            showConfirmButton: false,
+            timer: 1500,
+            customClass: {
+              popup: 'swal-custom-popup',
+              title: 'swal-custom-title',
+              content: 'swal-custom-text'
+            }
+          }).then(() => {
+            window.location.href = 'home.php';
+          });
         }
       });
     }
   });
 }
 </script>
+
 </body>
 </html>

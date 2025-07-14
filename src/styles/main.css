@@ -10830,7 +10830,8 @@ textarea.form-control-lg {
 .tech-card,
 .projects .card,
 .cert-border,
-.form-border {
+.form-border,
+.login-border {
   background-color: #212529;
   box-shadow: 0 0 15px rgba(115, 115, 115, 0.2);
   transition: all 0.2s ease;
@@ -10839,7 +10840,8 @@ textarea.form-control-lg {
 .tech-card:hover,
 .projects .card:hover,
 .cert-border:hover,
-.form-border:hover {
+.form-border:hover,
+.login-border:hover {
   background-color: #aa7eee;
   transform: translateY(-5px);
   box-shadow: 0 0 18px #6333ae;
@@ -10860,4 +10862,26 @@ textarea.form-control-lg {
 
 .soft-skill:hover {
   transform: scale(1.25);
+}
+
+.swal-custom-popup {
+  width: 400px;
+  max-width: 100%;
+  border: 2px solid #aa7eee;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 0 20px #6333ae;
+  background-color: #2c2c2e;
+}
+
+.swal-custom-title {
+  font-size: 1.8rem;
+  color: #aa7eee;
+  text-align: center;
+}
+
+.swal-custom-text {
+  font-size: 1.05rem;
+  color: #dcdcdc;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

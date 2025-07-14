@@ -1,109 +1,129 @@
-<?php
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    header('Location: index.php');
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
 
-    <!-- Ignore these, since you already installed bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
-    <!-- Ignore these, since you already installed bootstrap -->
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!--Include these links -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <!--Include these links -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles/main.css">
+  
+  
+  <!-- jQuery & SweetAlert2 -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+ 
+</style>
 </head>
 
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title text-center">Login</h4>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password"
-                                    placeholder="Enter your password">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Remember me</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Login</button>
-                        </form>
-                    </div>
-                    <div class="card-footer text-center">
-                        <small>Don't have an account? <a href="register.php">Sign up</a></small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body class="bg-dark text-white">
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+   <div class="row shadow rounded-4 w-100 rounded-5"
+  style="max-width: 900px; background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+  onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 20px #6333ae';"
+  onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
 
-    <script>
-        document.querySelector('form').addEventListener('submit', function (event) {
-            event.preventDefault();
+  <!-- Left: Login Form -->
+  <div class="col-md-6 d-flex flex-column justify-content-center px-4 py-5">
+    <form id="login-form" class="w-100">
+      <div class="mb-3">
+        <label for="email" class="form-label" style="color: #aa7eee;">SIGN IN WITH YOUR EMAIL</label>
+        <input type="email" class="form-control"
+          style="background-color: #212529; border: none; border-bottom: 2px solid #aa7eee; color: white;"
+          id="email" placeholder="Enter your email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label" style="color: #aa7eee;">PASSWORD</label>
+        <input type="password" class="form-control"
+          style="background-color: #212529; border: none; border-bottom: 2px solid #aa7eee; color: white;"
+          id="password" placeholder="Enter your password">
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" style="cursor: pointer" id="rememberMe">
+        <label class="form-check-label text-white" for="rememberMe" style="cursor: pointer">Remember me</label>
+      </div>
+      <button type="submit" class="btn border border-2 rounded-5 w-100"
+        style="background-color: #aa7eee;"
+        onmouseover="this.style.backgroundColor='#6333ae';"
+        onmouseout="this.style.backgroundColor='#aa7eee';">
+        SIGN IN
+      </button>
+      <div class="text-center mt-3">
+        <small class="text-white">Don't have an account? <a href="register.php" style="color: #aa7eee;">Sign up</a></small>
+      </div>
+    </form>
+  </div>
 
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+  <!-- Right: Logo Box -->
+  <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center p-4">
+    <img src="images/logo-transparent.png" alt="Login Image"
+         class="img-fluid rounded-4"
+         style="max-height: 300px; object-fit: contain;">
+  </div>
+</div>
 
-            $.ajax({
-                url: 'backend/checklogin.php',
-                method: 'POST',
-                data: {
-                    email: email,
-                    password: password,
-                },
-                dataType: 'json',
-                beforeSend: function () {
-                    $('#loading-indicator').show();
-                },
-                success: function (response) {
-                if (response.status === 'success') {
-                    Swal.fire({
-                        title: "Success!",
-                        icon: "success",
-                        timer: 1200,
-                        showConfirmButton: false
-                    }).then(() => {
-                        window.location.href = 'home.php';
-                    });
-                } else {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: response.message
-                    });
-                }
-        }
 
+<!-- Login AJAX Script -->
+  <script>
+    $('#login-form').on('submit', function (e) {
+      e.preventDefault();
+
+      const email = $('#email').val();
+      const password = $('#password').val();
+
+      $.ajax({
+        url: 'backend/checklogin.php',
+        method: 'POST',
+        data: { email, password },
+        dataType: 'json',
+        success: function (response) {
+          if (response.status === 'success') {
+            Swal.fire({
+              title: '<span style="color: #fff;">Login Successfully</span>',
+              icon: 'success',
+              iconColor: '#aa7eee',
+              background: '#2c2c2e',
+              color: '#ffffff',
+              confirmButtonColor: '#6333ae',
+              customClass: {
+                popup: 'swal-custom-popup',
+                title: 'swal-custom-title',
+                content: 'swal-custom-text'
+              },
+              timer: 1600,
+              showConfirmButton: false
+            }).then(() => {
+              window.location.href = 'home.php';
             });
-        });
-    </script>
+          } else {
+            Swal.fire({
+              title: '<span style="color: #fff;">Login Failed</span>',
+              text: response.message,
+              icon: 'error',
+              iconColor: '#ff6b6b',
+              background: '#2c2c2e',
+              color: '#ffffff',
+              confirmButtonColor: '#aa7eee',
+              customClass: {
+                popup: 'swal-custom-popup',
+                title: 'swal-custom-title',
+                content: 'swal-custom-text'
+              }
+            });
+          }
+        }
+      });
+    });
+  </script>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

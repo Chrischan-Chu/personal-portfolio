@@ -234,8 +234,8 @@ document.getElementById('edit-form').addEventListener('submit', function (e) {
 
 
   <!-- JS -->
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></scrip>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
