@@ -93,7 +93,8 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
       customClass: {
         popup: 'swal-custom-popup',
         title: 'swal-custom-title',
-        content: 'swal-custom-text'
+        content: 'swal-custom-text',
+        confirmButton: 'custom-confirm-btn'
       }
     });
     return;
@@ -121,7 +122,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   }
 
   $.ajax({
-    url: 'backend/checkregister.php',
+    url: 'backend/missingregister.php',
     method: 'POST',
     data: {
       name: name,
@@ -160,7 +161,8 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         customClass: {
           popup: 'swal-custom-popup',
           title: 'swal-custom-title',
-          content: 'swal-custom-text'
+          content: 'swal-custom-text',
+          confirmButton: 'custom-confirm-btn'
         }
       });
     }

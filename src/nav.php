@@ -78,23 +78,48 @@
               session_start(); 
 
               if (isset($_SESSION['user_id'])) {
-                  echo '<a href="#" 
-                          class="btn rounded-5 ms-3 border rounded-5 "
-                          style="background-color: #aa7eee;"
-                          onmouseover="this.style.backgroundColor=\'#6333ae\';"
-                          onmouseout="this.style.backgroundColor=\'#aa7eee\';"
-                          onclick="logoutConfirm()">
-                          Logout
-                        </a>';
-              } else {
-                  echo '<a href="index.php" 
-                          class="btn rounded-5 ms-3 border rounded-5 "
-                          style="background-color: #aa7eee;"
-                          onmouseover="this.style.backgroundColor=\'#6333ae\';"
-                          onmouseout="this.style.backgroundColor=\'#aa7eee\';">
-                          Login
-                        </a>';
-              }
+      // Mobile + Tablet: centered
+      echo '<div class="d-lg-none w-100 text-center">
+              <a href="#" 
+                class="btn rounded-5 border"
+                style="background-color: #aa7eee;"
+                onclick="logoutConfirm()"
+                onmouseover="this.style.backgroundColor=\'#6333ae\';"
+                onmouseout="this.style.backgroundColor=\'#aa7eee\';">
+                Logout
+              </a>
+            </div>';
+
+      // Desktop: aligned right
+      echo '<a href="#" 
+              class="btn rounded-5 border d-none d-lg-inline-block"
+              style="background-color: #aa7eee;"
+              onclick="logoutConfirm()"
+              onmouseover="this.style.backgroundColor=\'#6333ae\';"
+              onmouseout="this.style.backgroundColor=\'#aa7eee\';">
+              Logout
+            </a>';
+  } else {
+      // Mobile + Tablet: centered
+      echo '<div class="d-lg-none w-100 text-center">
+              <a href="index.php" 
+                class="btn rounded-5 border"
+                style="background-color: #aa7eee;"
+                onmouseover="this.style.backgroundColor=\'#6333ae\';"
+                onmouseout="this.style.backgroundColor=\'#aa7eee\';">
+                Login
+              </a>
+            </div>';
+
+      // Desktop: aligned right
+      echo '<a href="index.php" 
+              class="btn rounded-5 border d-none d-lg-inline-block"
+              style="background-color: #aa7eee;"
+              onmouseover="this.style.backgroundColor=\'#6333ae\';"
+              onmouseout="this.style.backgroundColor=\'#aa7eee\';">
+              Login
+            </a>';
+  }
             ?>
           </li>
         </ul>
@@ -147,7 +172,7 @@ function logoutConfirm() {
               content: 'swal-custom-text'
             }
           }).then(() => {
-            window.location.href = 'home.php';
+            window.location.href = 'login.php';
           });
         }
       });

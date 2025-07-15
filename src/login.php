@@ -69,59 +69,59 @@
 
 
 <!-- Login AJAX Script -->
-  <script>
-    $('#login-form').on('submit', function (e) {
-      e.preventDefault();
+    <script>
+      $('#login-form').on('submit', function (e) {
+        e.preventDefault();
 
-      const email = $('#email').val();
-      const password = $('#password').val();
+        const email = $('#email').val();
+        const password = $('#password').val();
 
-      $.ajax({
-        url: 'backend/checklogin.php',
-        method: 'POST',
-        data: { email, password },
-        dataType: 'json',
-        success: function (response) {
-          if (response.status === 'success') {
+        $.ajax({
+          url: 'backend/checklogin.php',
+          method: 'POST',
+          data: { email, password },
+          dataType: 'json',
+          success: function (response) {
+            if (response.status === 'success') {
+              Swal.fire({
+                title: '<span style="color: #fff;">Login Successfully</span>',
+                icon: 'success',
+                iconColor: '#aa7eee',
+                background: '#2c2c2e',
+                color: '#ffffff',
+                confirmButtonColor: '#6333ae',
+                customClass: {
+                  popup: 'swal-custom-popup',
+                  title: 'swal-custom-title',
+                  content: 'swal-custom-text'
+                },
+                timer: 1600,
+                showConfirmButton: false
+              }).then(() => {
+                window.location.href = 'home.php';
+              });
+            } else {
             Swal.fire({
-              title: '<span style="color: #fff;">Login Successfully</span>',
-              icon: 'success',
-              iconColor: '#aa7eee',
-              background: '#2c2c2e',
-              color: '#ffffff',
-              confirmButtonColor: '#6333ae',
-              customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                content: 'swal-custom-text'
-              },
-              timer: 1600,
-              showConfirmButton: false
-            }).then(() => {
-              window.location.href = 'home.php';
-            });
-          } else {
-           Swal.fire({
-  title: '<span style="color: #fff;">Login Failed</span>',
-  text: response.message,
-  icon: 'error',
-  iconColor: '#ff6b6b',
-  background: '#2c2c2e',
-  color: '#ffffff',
-  confirmButtonText: 'OK',
-  customClass: {
-    popup: 'swal-custom-popup',
-    title: 'swal-custom-title',
-    content: 'swal-custom-text',
-    confirmButton: 'custom-confirm-btn' 
-  }
-});
+    title: '<span style="color: #fff;">Login Failed</span>',
+    text: response.message,
+    icon: 'error',
+    iconColor: '#ff6b6b',
+    background: '#2c2c2e',
+    color: '#ffffff',
+    confirmButtonText: 'OK',
+    customClass: {
+      popup: 'swal-custom-popup',
+      title: 'swal-custom-title',
+      content: 'swal-custom-text',
+      confirmButton: 'custom-confirm-btn' 
+    }
+  });
 
+            }
           }
-        }
+        });
       });
-    });
-  </script>
+    </script>
 
 
   <!-- Bootstrap JS -->

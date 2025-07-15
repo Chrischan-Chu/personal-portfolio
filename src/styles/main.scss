@@ -40,6 +40,7 @@
 }
 
 
+
 .hover-effect {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -115,6 +116,7 @@
     padding: 2rem;
     box-shadow: 0 0 20px #6333ae;
     background-color: #2c2c2e;
+    box-sizing: border-box;
   }
 
   .swal-custom-title {
@@ -146,6 +148,17 @@
 .swal2-cancel.custom-cancel-btn:hover {
   background-color: #6333ae;
   color: #fff;
+}
+
+@media (max-width: 576px) {
+  body.swal2-shown {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  html.swal2-shown {
+    overflow-x: hidden !important;
+  }
 }
 
 
