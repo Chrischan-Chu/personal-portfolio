@@ -1,10 +1,12 @@
 <!-- Navbar -->   
 <?php
-include "nav.php"
+include "nav.php";
+include "config.php";
+
 ?>
   <!-- Contact Section -->
   <section class="d-flex container flex-column flex-md-row justify-content-between 
-    align-items-start py-5 my-5 gap-5">
+    align-items-start py-5 my-4 gap-5">
 
     <!-- Left Column -->
     <div class="flex-fill text-center text-md-start">
@@ -50,23 +52,23 @@ include "nav.php"
     <!-- Right Column -->
     <div class="flex-fill">
       <div class="p-4 rounded-4 bg-dark form-border" style="background-color: #2c2c2e;">
-        <form>
+        <form id="contact-form" method="POST">
           <div class="mb-4">
             <label for="name" class="form-label text-white">Name</label>
-            <input type="text" class="form-control bg-transparent"
-              placeholder="Your name"
+            <input type="text" name="name" class="form-control bg-transparent"
+              id="name" placeholder="Your name"
               style="border: none; border-bottom: 2px solid #aa7eee; color: white;">
           </div>
           <div class="mb-4">
             <label for="email" class="form-label text-white">Email</label>
-            <input type="email" class="form-control bg-transparent"
-              placeholder="you@example.com"
+            <input type="email" name="email" class="form-control bg-transparent"
+              id="email" placeholder="you@example.com"
               style="border: none; border-bottom: 2px solid #aa7eee; color: white;">
           </div>
           <div class="mb-4">
             <label for="message" class="form-label text-white">Message</label>
-            <textarea class="form-control bg-transparent"
-              rows="4" placeholder="Write your message..."
+            <textarea name="message" class="form-control bg-transparent"
+              id ="message" rows="4" placeholder="Write your message..."
               style="border: none; border-bottom: 2px solid #aa7eee; color: white;"></textarea>
           </div>
           <div class="text-center text-lg-start">
@@ -79,6 +81,63 @@ include "nav.php"
       </div>
     </div>
   </section>
+
+ <script>
+  $(document).ready(function () {
+    $('#contact-form').on('submit', function (e) {
+      e.preventDefault(); 
+
+      const name = $('#name').val();
+      const email = $('#email').val();
+      const message = $('#message').val();
+
+      $.ajax({
+        url: 'backend/contact_submit.php',
+        method: 'POST',
+        data: { name, email, message },
+        dataType: 'json',
+        success: function (response) {
+          if (response.status === 'success') {
+            Swal.fire({
+              title: '<span style="color: #fff;">Message Sent Successfully!</span>',
+              icon: 'success',
+              iconColor: '#aa7eee',
+              background: '#2c2c2e',
+              color: '#ffffff',
+              confirmButtonColor: '#6333ae',
+              timer: 1600,
+              showConfirmButton: false
+            }).then(() => {
+              window.location.href = 'home.php';
+            });
+          } else {
+            Swal.fire({
+              title: '<span style="color: #fff;">Missing Information</span>',
+              text: response.message,
+              icon: 'error',
+              iconColor: '#ff6b6b',
+              background: '#2c2c2e',
+              color: '#ffffff',
+              confirmButtonText: 'OK'
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.log('AJAX Error:', error);
+          Swal.fire({
+            title: 'AJAX Error',
+            text: 'Something went wrong while contacting the server.',
+            icon: 'error',
+            background: '#2c2c2e',
+            color: '#ffffff'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+
 
   <!-- JS -->
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
