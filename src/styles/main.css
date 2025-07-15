@@ -10884,4 +10884,21 @@ textarea.form-control-lg {
   font-size: 1.05rem;
   color: #dcdcdc;
   text-align: center;
+}
+
+.swal2-confirm.custom-confirm-btn,
+.swal2-cancel.custom-cancel-btn {
+  background-color: #aa7eee;
+  color: #000;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.swal2-confirm.custom-confirm-btn:hover,
+.swal2-cancel.custom-cancel-btn:hover {
+  background-color: #6333ae;
+  color: #fff;
 }/*# sourceMappingURL=main.css.map */

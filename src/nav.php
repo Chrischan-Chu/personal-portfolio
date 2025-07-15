@@ -118,12 +118,14 @@ function logoutConfirm() {
     showCancelButton: true,
     confirmButtonColor: '#6333ae',
     cancelButtonColor: '#aa7eee',
-    confirmButtonText: 'Logout',
-    cancelButtonText: 'Cancel',
+    confirmButtonText: 'LOGOUT',
+    cancelButtonText: 'CANCEL',
     customClass: {
       popup: 'swal-custom-popup',
       title: 'swal-custom-title',
-      content: 'swal-custom-text'
+      content: 'swal-custom-text',
+      confirmButton: 'custom-confirm-btn',
+      cancelButton: 'custom-cancel-btn'
     }
   }).then((result) => {
     if (result.isConfirmed) {

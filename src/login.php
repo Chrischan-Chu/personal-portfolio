@@ -101,20 +101,22 @@
               window.location.href = 'home.php';
             });
           } else {
-            Swal.fire({
-              title: '<span style="color: #fff;">Login Failed</span>',
-              text: response.message,
-              icon: 'error',
-              iconColor: '#ff6b6b',
-              background: '#2c2c2e',
-              color: '#ffffff',
-              confirmButtonColor: '#aa7eee',
-              customClass: {
-                popup: 'swal-custom-popup',
-                title: 'swal-custom-title',
-                content: 'swal-custom-text'
-              }
-            });
+           Swal.fire({
+  title: '<span style="color: #fff;">Login Failed</span>',
+  text: response.message,
+  icon: 'error',
+  iconColor: '#ff6b6b',
+  background: '#2c2c2e',
+  color: '#ffffff',
+  confirmButtonText: 'OK',
+  customClass: {
+    popup: 'swal-custom-popup',
+    title: 'swal-custom-title',
+    content: 'swal-custom-text',
+    confirmButton: 'custom-confirm-btn' 
+  }
+});
+
           }
         }
       });

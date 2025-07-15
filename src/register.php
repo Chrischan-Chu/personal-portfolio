@@ -72,52 +72,102 @@
 
   <!-- Register AJAX Script -->
   <script>
-    document.getElementById('registerForm').addEventListener('submit', function (event) {
-      event.preventDefault();
+document.getElementById('registerForm').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
 
-      if (password !== confirmPassword) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Passwords do not match!',
-        });
-        return;
+  // Check for empty fields
+  if (!name || !email || !password || !confirmPassword) {
+    Swal.fire({
+      icon: 'error',
+      iconColor: '#ff6b6b',
+      title: '<span style="color: #fff;">Missing Information</span>',
+      text: 'Please fill out all fields.',
+      background: '#2c2c2e',
+      color: '#ffffff',
+      confirmButtonColor: '#aa7eee',
+      customClass: {
+        popup: 'swal-custom-popup',
+        title: 'swal-custom-title',
+        content: 'swal-custom-text'
       }
+    });
+    return;
+  }
 
-      $.ajax({
-        url: 'backend/checkregister.php',
-        method: 'POST',
-        data: {
-          name: name,
-          email: email,
-          password: password,
-        },
-        dataType: 'json',
-        success: function (response) {
-          Swal.fire({
-            title: "Registration Successful!",
-            icon: "success",
-            text: "You can now log in.",
-          });
-          setTimeout(function () {
-            window.location.href = 'login.php';
-          }, 1500);
-        },
-        error: function () {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong, please try again later.",
-          });
+  // Check if passwords match
+  if (password !== confirmPassword) {
+   Swal.fire({
+  icon: 'error',
+  iconColor: '#ff6b6b',
+  title: '<span style="color: #fff;">Oops...</span>',
+  text: 'Passwords do not match!',
+  background: '#2c2c2e',
+  color: '#ffffff',
+  confirmButtonText: 'OK',
+  customClass: {
+    popup: 'swal-custom-popup',
+    title: 'swal-custom-title',
+    content: 'swal-custom-text',
+    confirmButton: 'custom-confirm-btn' 
+  }
+});
+
+    return;
+  }
+
+  $.ajax({
+    url: 'backend/checkregister.php',
+    method: 'POST',
+    data: {
+      name: name,
+      email: email,
+      password: password,
+    },
+    dataType: 'json',
+    success: function (response) {
+      Swal.fire({
+        title: '<span style="color: #fff;">Registration Successful!</span>',
+        icon: 'success',
+        iconColor: '#aa7eee',
+        text: 'You can now log in.',
+        background: '#2c2c2e',
+        color: '#ffffff',
+        showConfirmButton: false,
+        timer: 1600,
+        customClass: {
+          popup: 'swal-custom-popup',
+          title: 'swal-custom-title',
+          content: 'swal-custom-text'
+        }
+      }).then(() => {
+        window.location.href = 'login.php';
+      });
+    },
+    error: function () {
+      Swal.fire({
+        icon: 'error',
+        iconColor: '#ff6b6b',
+        title: '<span style="color: #fff;">Oops...</span>',
+        text: 'Something went wrong, please try again later.',
+        background: '#2c2c2e',
+        color: '#ffffff',
+        confirmButtonColor: '#aa7eee',
+        customClass: {
+          popup: 'swal-custom-popup',
+          title: 'swal-custom-title',
+          content: 'swal-custom-text'
         }
       });
-    });
-  </script>
+    }
+  });
+});
+</script>
+
 </body>
 
 </html>
