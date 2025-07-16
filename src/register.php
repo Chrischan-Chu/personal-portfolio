@@ -122,7 +122,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
   }
 
   $.ajax({
-    url: 'backend/missingregister.php',
+    url: 'backend/checkregister.php',
     method: 'POST',
     data: {
       name: name,
@@ -135,7 +135,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         title: '<span style="color: #fff;">Registration Successful!</span>',
         icon: 'success',
         iconColor: '#aa7eee',
-        text: 'You can now log in.',
+        text: 'Activate your account in order to log in.',
         background: '#2c2c2e',
         color: '#ffffff',
         showConfirmButton: false,
@@ -146,7 +146,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
           content: 'swal-custom-text'
         }
       }).then(() => {
-        window.location.href = 'login.php';
+        window.location.href = 'successful_signup.php';
       });
     },
     error: function () {

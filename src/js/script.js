@@ -4,3 +4,5 @@ var typed = new Typed(".auto-type", {
   backSpeed: 30,
   loop: true
 });
+
+

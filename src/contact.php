@@ -5,8 +5,9 @@ include "config.php";
 
 ?>
   <!-- Contact Section -->
-  <section class="d-flex container flex-column flex-md-row justify-content-between 
-    align-items-start py-5 my-4 gap-5">
+    <section class="container d-flex flex-column flex-md-row align-items-center 
+    align-items-md-start justify-content-between text-center text-md-start py-5 my-4 gap-5">
+
 
     <!-- Left Column -->
     <div class="flex-fill text-center text-md-start">
@@ -87,9 +88,9 @@ include "config.php";
     $('#contact-form').on('submit', function (e) {
       e.preventDefault(); 
 
-      const name = $('#name').val();
-      const email = $('#email').val();
-      const message = $('#message').val();
+      const name = $('#name').val().trim();
+      const email = $('#email').val().trim();
+      const message = $('#message').val().trim();
 
       $.ajax({
         url: 'backend/contact_submit.php',
@@ -99,31 +100,43 @@ include "config.php";
         success: function (response) {
           if (response.status === 'success') {
             Swal.fire({
-              title: '<span style="color: #fff;">Message Sent Successfully!</span>',
-              icon: 'success',
-              iconColor: '#aa7eee',
-              background: '#2c2c2e',
-              color: '#ffffff',
-              confirmButtonColor: '#6333ae',
-              timer: 1600,
-              showConfirmButton: false
-            }).then(() => {
-              window.location.href = 'home.php';
-            });
+  title: '<span style="color: #fff;">Message Sent Successfully!</span>',
+  icon: 'success',
+  iconColor: '#aa7eee',
+  background: '#2c2c2e',
+  color: '#ffffff',
+  confirmButtonColor: '#6333ae',
+  showConfirmButton: false,
+  timer: 1600, 
+  customClass: {
+    popup: 'swal-custom-popup',
+    title: 'swal-custom-title',
+    content: 'swal-custom-text'
+  }
+}).then(() => {
+  window.location.href = 'home.php';
+});
+
           } else {
             Swal.fire({
-              title: '<span style="color: #fff;">Missing Information</span>',
-              text: response.message,
               icon: 'error',
               iconColor: '#ff6b6b',
+              title: '<span style="color: #fff;">Missing Information</span>',
+              text: 'Please fill out all fields.',
               background: '#2c2c2e',
               color: '#ffffff',
-              confirmButtonText: 'OK'
+              confirmButtonColor: '#aa7eee',
+              customClass: {
+                popup: 'swal-custom-popup',
+                title: 'swal-custom-title',
+                content: 'swal-custom-text',
+                confirmButton: 'custom-confirm-btn'
+        }
             });
           }
         },
         error: function (xhr, status, error) {
-          console.log('AJAX Error:', error);
+          console.log('Error:', error);
           Swal.fire({
             title: 'AJAX Error',
             text: 'Something went wrong while contacting the server.',

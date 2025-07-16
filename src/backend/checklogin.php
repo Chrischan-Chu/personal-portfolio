@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT id, password, account_activation_hash FROM users WHERE email = ? LIMIT 1");
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $stmt->store_result();
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt->bind_result($userId, $hashedPassword);
+    $stmt->bind_result($userId, $hashedPassword, $account_activation_hash );
     $stmt->fetch();
 
     if (!password_verify($password, $hashedPassword)) {
@@ -28,9 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
+    if ($account_activation_hash !== null){
+        echo json_encode(['status' => 'error', 'message' => 'Your Account is not activated yet.']);
+
+    }
+
     session_start();
     $_SESSION['user_id'] = $userId; 
-    
 
     echo json_encode(['status' => 'success', 'message' => 'Login successful.']);
 }
