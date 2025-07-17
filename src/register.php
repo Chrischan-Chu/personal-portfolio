@@ -135,7 +135,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
         title: '<span style="color: #fff;">Registration Successful!</span>',
         icon: 'success',
         iconColor: '#aa7eee',
-        text: 'Activate your account in order to log in.',
+        text: 'Activate your account to access it.',
         background: '#2c2c2e',
         color: '#ffffff',
         showConfirmButton: false,

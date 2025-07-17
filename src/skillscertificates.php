@@ -92,7 +92,7 @@ include "nav.php"
 
   <!-- Soft Skills Section -->
   <section class="container d-flex flex-column align-items-center py-5 my-5">
-    <h2 class="text-center fw-semibold mb-5 d-none d-md-block" style="color:#aa7eee">Soft Skills</h2>
+    <h2 class="text-center fw-semibold mb-4 d-none d-md-block" style="color:#aa7eee">Soft Skills</h2>
     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
 
       <!-- Teamwork -->

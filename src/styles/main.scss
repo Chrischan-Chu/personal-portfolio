@@ -7,16 +7,6 @@
 
 
 
-.hover-effect {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-effect:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0px 20px rgba(170, 126, 238, 0.6);
-}
-
-
 .skill-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -115,6 +105,21 @@
   background-color: #6333ae;
   color: #fff;
 }
+
+.activation-card {
+      max-width: 650px;
+      background-color: #2c2c2e;
+      border: 3px solid #aa7eee;
+      border-radius: 25px;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .activation-card:hover {
+      border-color: #6333ae;
+      box-shadow: 0 0 20px #000000ff;
+    }
 
 @media (max-width: 576px) {
   body.swal2-shown {

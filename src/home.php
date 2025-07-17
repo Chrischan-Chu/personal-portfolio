@@ -62,19 +62,25 @@
 
   <!-- Right Column -->
   <div>
-    <img src="images/logo.png" width="350" height="350" alt="Logo"
-      class="rounded-5 d-none d-lg-block hover-effect"
-      style="border: 5px solid #aa7eee;">
-    <img src="images/logo.png" width="250" height="250" alt="Logo"
-      class="rounded-5 d-lg-none hover-effect mt-5"
-      style="border: 5px solid #aa7eee;">
-  </div>
+  <img src="images/logo.png" width="350" height="350" alt="Logo"
+    class="rounded-5 d-none d-lg-block"
+    style="border: 5px solid #aa7eee; transition: all 0.3s ease;"
+    onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 25px rgba(0,0,0,0.7)';"
+    onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
+
+  <img src="images/logo.png" width="250" height="250" alt="Logo"
+    class="rounded-5 d-lg-none mt-5"
+    style="border: 5px solid #aa7eee; transition: all 0.3s ease;"
+    onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 20px rgba(0,0,0,0.7)';"
+    onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
+</div>
+
 </section>
 
 
     <!-- Divider -->
     <div class="d-none d-md-block pt-0 pt-md-4">
-      <svg class="w-100" viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-100" viewBox="0 0 1440 240" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6333ae" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,106.7C384,96,480,64,576,74.7C672,85,768,139,864,144C960,149,1056,107,1152,101.3C1248,96,1344,128,1392,144L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
       </svg>
     </div>
