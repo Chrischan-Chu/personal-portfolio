@@ -107,7 +107,7 @@
                 style="background-color: #aa7eee;"
                 onmouseover="this.style.backgroundColor=\'#6333ae\';"
                 onmouseout="this.style.backgroundColor=\'#aa7eee\';">
-                Login
+                Get Started
               </a>
             </div>';
 
@@ -117,7 +117,7 @@
               style="background-color: #aa7eee;"
               onmouseover="this.style.backgroundColor=\'#6333ae\';"
               onmouseout="this.style.backgroundColor=\'#aa7eee\';">
-              Login
+              Get Started
             </a>';
   }
             ?>

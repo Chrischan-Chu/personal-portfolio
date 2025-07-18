@@ -23,11 +23,27 @@
     <section class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-5 my-5 text-center text-md-start">
   <!-- Left Column -->
   <div class="mb-4 mb-md-0">
-    <h1 class="fw-bold fs-1">
-      <span>Christian Ralph R. Tan</span>
-    </h1>
-    <h3><span class="auto-type" style="color:#aa7eee;"></span></h3>
-    <p class="text-secondary mt-3 fs-5">Life's a journey, forge your own path</p>
+     <!-- Tablet (md only) -->
+  <h2 class="fw-bold d-none d-md-block d-lg-none">
+    <span>Christian Ralph R. Tan</span>
+  </h2>
+  <h4 class="d-none d-md-block d-lg-none">
+    <span class="auto-type-tablet" style="color:#aa7eee;"></span>
+  </h4>
+  <p class="text-secondary mt-3 fs-6 d-none d-md-block d-lg-none">
+    Life's a journey, forge your own path
+  </p>
+
+  <!-- Mobile + Desktop -->
+  <h1 class="fw-bold d-block d-md-none d-lg-block">
+    <span>Christian Ralph R. Tan</span>
+  </h1>
+  <h3 class="d-block d-md-none d-lg-block">
+    <span class="auto-type-desktop" style="color:#aa7eee;"></span>
+  </h3>
+  <p class="text-secondary mt-3 fs-5 d-block d-md-none d-lg-block">
+    Life's a journey, forge your own path
+  </p>
 
     <!-- Socials -->
     <div class="social-icons d-flex flex-column flex-md-row align-items-center 
@@ -44,11 +60,11 @@
           onmouseover="this.style.color='#aa7eee';"
           onmouseout="this.style.color='white';"><i class="bi bi-github"></i></a>
       </div>
-      <a href="assets/resume.pdf" download
-        class="btn rounded-5 border border-2 btn-outline-dark mt-3 mt-md-0"
-        style="background-color: #aa7eee;"
-        onmouseover="this.style.backgroundColor='#6333ae';"
-        onmouseout="this.style.backgroundColor='#aa7eee';">Download Resume</a>
+        <a href="assets/resume.pdf" download
+          class="btn rounded-5 border border-2 btn-outline-dark mt-3 mt-md-0"
+          style="background-color: #aa7eee;"
+          onmouseover="this.style.backgroundColor='#6333ae';"
+          onmouseout="this.style.backgroundColor='#aa7eee';">Download Resume</a>
     </div>
 
     <div>
@@ -68,24 +84,26 @@
     onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 25px rgba(0,0,0,0.7)';"
     onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
 
-  <img src="images/logo.png" width="250" height="250" alt="Logo"
-    class="rounded-5 d-lg-none mt-5"
+ <img src="images/logo.png" width="280" height="280" alt="Logo"
+    class="rounded-5 d-lg-none mt-5 mt-md-0"
     style="border: 5px solid #aa7eee; transition: all 0.3s ease;"
-    onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 20px rgba(0,0,0,0.7)';"
+    onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 25px rgba(0,0,0,0.7)';"
     onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
-</div>
 
+</div>
 </section>
 
 
     <!-- Divider -->
-    <div class="d-none d-md-block pt-0 pt-md-4">
-      <svg class="w-100" viewBox="0 0 1440 240" xmlns="http://www.w3.org/2000/svg">
+   
+    <div class="pt-lg-3 d-block d-md-none d-lg-block">
+      <svg viewBox="0 0 1440 220"xmlns="http://www.w3.org/2000/svg">
         <path fill="#6333ae" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,106.7C384,96,480,64,576,74.7C672,85,768,139,864,144C960,149,1056,107,1152,101.3C1248,96,1344,128,1392,144L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
       </svg>
     </div>
-    <div class="d-block d-md-none">
-      <svg viewBox="0 0 1440 220"xmlns="http://www.w3.org/2000/svg">
+
+    <div class="pt-3 d-none d-lg-none d-md-block">
+      <svg viewBox="0 -30 1440 220"xmlns="http://www.w3.org/2000/svg">
         <path fill="#6333ae" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,106.7C384,96,480,64,576,74.7C672,85,768,139,864,144C960,149,1056,107,1152,101.3C1248,96,1344,128,1392,144L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
       </svg>
     </div>
@@ -98,59 +116,76 @@
         <div class="col-lg-6 d-none d-lg-block">
           <div class="d-grid skill-grid gap-3">
             <!-- Web Developer Card -->
-            <div class="card skill-card shadow rounded-5 p-3 mx-auto" style="background-color: #aa7eee;">
+            <div class="card skill-card rounded-5 p-3 mx-auto" 
+            style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+      onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';"
+            >
               <div class="card-body d-flex align-items-center gap-4">
-                <img src="images/webdeveloper.png" alt="Web Developer" width="40" />
-                <h5 class="fw-semibold">Web Developer</h5>
+                <img src="images/webdeveloper.png" alt="Web Developer" width="50" />
+                <h5 class="fw-semibold" style="color:#FAF9F6">Web Developer</h5>
               </div>
             </div>
             <!-- UI/UX Designer Card -->
-            <div class="card skill-card shadow rounded-5 p-3 mx-auto" style="background-color: #6333ae;">
+            <div class="card skill-card rounded-5 p-3 mx-auto" 
+            style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+      onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
+
               <div class="card-body d-flex align-items-center gap-4">
-                <img src="images/uxdesigner.png" alt="UI/UX Designer" width="40" />
-                <h5 class="fw-semibold">UI/UX Designer</h5>
+                <img src="images/uidesigner.png" alt="UI/UX Designer" width="50" />
+                <h5 class="fw-semibold" style="color:#FAF9F6">UI/UX Designer</h5>
               </div>
             </div>
             <!-- CMS Developer Card -->
-            <div class="card skill-card shadow rounded-5 p-3 mx-auto" style="background-color: #aa7eee;">
+            <div class="card skill-card rounded-5 p-3 mx-auto" 
+            style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+            onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+            onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
               <div class="card-body d-flex align-items-center gap-4">
-                <img src="images/cmsdeveloper.png" alt="CMS Developer" width="40" />
-                <h5 class="fw-semibold">CMS Developer</h5>
+                <img src="images/cmsdeveloper.png" alt="CMS Developer" width="50" />
+                <h5 class="fw-semibold" style="color:#FAF9F6">CMS Developer</h5>
               </div>
             </div>
           </div>
         </div>
-
+  
         <!-- Tablet -->
         <div class="col-12 d-none d-lg-none d-md-block mb-5">
           <div class="row gx-3 gy-3 justify-content-center">
             <!-- Web Developer Card -->
             <div class="col-12 col-md-4 d-flex justify-content-center">
-              <div class="card skill-card shadow rounded-5 p-3 w-100"
-                style="background-color: #aa7eee; max-width: 250px;">
+              <div class="card skill-card rounded-5 p-3 w-100"
+                style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+      onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
                 <div class="card-body d-flex align-items-center gap-3 p-2">
-                  <img src="images/webdeveloper.png" alt="Web Developer" width="35" />
-                  <h6 class="fw-semibold mb-0">Web Developer</h6>
+                  <img src="images/webdeveloper.png" alt="Web Developer" width="50" />
+                  <h6 class="fw-semibold mb-0" style="color:#FAF9F6">Web Developer</h6>
                 </div>
               </div>
             </div>
             <!-- UI/UX Designer Card -->
             <div class="col-12 col-md-4 d-flex justify-content-center">
-              <div class="card skill-card shadow rounded-5 p-3 w-100"
-                style="background-color: #6333ae; max-width: 250px;">
+              <div class="card skill-card rounded-5 p-3 w-100"
+                style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+      onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
                 <div class="card-body d-flex align-items-center gap-3 p-2">
-                  <img src="images/uxdesigner.png" alt="UI/UX Designer" width="35" />
-                  <h6 class="fw-semibold mb-0">UI/UX Designer</h6>
+                  <img src="images/uidesigner.png" alt="UI/UX Designer" width="50" />
+                  <h6 class="fw-semibold mb-0" style="color:#FAF9F6">UI/UX Designer</h6>
                 </div>
               </div>
             </div>
             <!-- CMS Developer Card -->
             <div class="col-12 col-md-4 d-flex justify-content-center">
-              <div class="card skill-card shadow rounded-5 p-3 w-100"
-                style="background-color: #aa7eee; max-width: 250px;">
+              <div class="card skill-card rounded-5 p-3 w-100"
+                style="background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 13px #000000ff';"
+      onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
                 <div class="card-body d-flex align-items-center gap-3 p-2">
-                  <img src="images/cmsdeveloper.png" alt="CMS Developer" width="35" />
-                  <h6 class="fw-semibold mb-0">CMS Developer</h6>
+                  <img src="images/cmsdeveloper.png" alt="CMS Developer" width="50" />
+                  <h6 class="fw-semibold mb-0" style="color:#FAF9F6">CMS Developer</h6>
                 </div>
               </div>
             </div>

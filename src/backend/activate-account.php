@@ -80,7 +80,7 @@ $stmt->execute();
       <img src="../images/confetti.png"
            alt="Congratulations!"
            class="img-fluid mb-4"
-           style="max-width:250px; filter: drop-shadow(0 0 10px #000);">
+           style="max-width:250px; filter: drop-shadow(0 0 5px #000);">
 
       <!-- Title -->
       <h2 class="fw-bold mb-3" style="color: #aa7eee;">
@@ -94,7 +94,7 @@ $stmt->execute();
       </p>
 
       <!-- Button -->
-      <a href="login.php"
+      <a href="../login.php"
          class="btn border border-2 rounded-5 px-3 py-2"
          style="background-color: #aa7eee;"
         onmouseover="this.style.backgroundColor='#6333ae';"

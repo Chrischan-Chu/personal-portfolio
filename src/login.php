@@ -19,9 +19,9 @@
 
 <body class="bg-dark text-white">
   <div class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="row shadow rounded-4 w-100 rounded-5"
+    <div class="row rounded-4 w-100 rounded-5"
       style="max-width: 900px; background-color: #2c2c2e; border: 3px solid #aa7eee; transition: all 0.3s ease;"
-      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 20px #6333ae';"
+      onmouseover="this.style.borderColor='#6333ae'; this.style.boxShadow='0 0 25px #000000ff';"
       onmouseout="this.style.borderColor='#aa7eee'; this.style.boxShadow='none';">
 
       <!-- Left: Login Form -->
@@ -59,7 +59,7 @@
       <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center p-4">
         <img src="images/logo-transparent.png" alt="Login Image"
             class="img-fluid rounded-4"
-            style="max-height: 300px; object-fit: contain;">
+            style="max-height: 300px; object-fit: contain; filter: drop-shadow(0 0 5px #000);">
       </div>
     </div>
   </div>

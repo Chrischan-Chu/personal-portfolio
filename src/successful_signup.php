@@ -22,7 +22,7 @@
     >
       <img src="images/account-success.png" alt="Account Created Successfully" 
         class="img-fluid mb-4"
-        style="width: 200px; filter: drop-shadow(0 0 10px #000000ff);"
+        style="width: 200px; filter: drop-shadow(0 0 5px #000000ff);"
       >
 
       <h2 class="fw-bold mb-3" style="color: #aa7eee;">Account Created Successfully!</h2>
@@ -35,10 +35,7 @@
         class="btn rounded-5 border border-2 btn-outline-dark px-4 py-2"
         style="background-color: #aa7eee;"
         onmouseover="this.style.backgroundColor='#6333ae';"
-        onmouseout="this.style.backgroundColor='#aa7eee';"
-      >
-        Go to Login
-      </a>
+        onmouseout="this.style.backgroundColor='#aa7eee';">Go to Login</a>
     </div>
   </div>
 
