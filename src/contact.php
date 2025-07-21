@@ -4,6 +4,10 @@ include "nav.php";
 include "config.php";
 
 ?>
+
+<title>Personal Portfolio | Contact</title>
+<html>
+  <body>
   <!-- Contact Section -->
     <section class="container d-flex flex-column flex-md-row align-items-center 
     align-items-md-start justify-content-between text-center text-md-start py-5 my-4 gap-5">

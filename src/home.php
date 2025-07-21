@@ -20,6 +20,9 @@
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
   ?>
+  <title>Personal Portfolio | Home</title>
+  <html>
+  <body>
     <section class="container d-flex flex-column flex-md-row justify-content-between align-items-center py-5 my-5 text-center text-md-start">
   <!-- Left Column -->
   <div class="mb-4 mb-md-0">

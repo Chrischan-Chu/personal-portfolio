@@ -2,6 +2,10 @@
 <?php
 include "nav.php"
 ?>
+
+<title>Personal Portfolio | Skills & Certificates</title>
+<html>
+  <body>
   <!-- Technical Skills Section -->
   <section class="container py-5 my-5 d-flex flex-column align-items-center">
     <h2 class="text-center mb-5 fw-semibold d-none d-md-block" style="color:#aa7eee">Technical Skills</h2>

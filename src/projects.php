@@ -2,6 +2,10 @@
 <?php
 include "nav.php"
 ?>
+
+<title>Personal Portfolio | Projects</title>
+<html>
+  <body>
   <!-- Projects Section -->
   <section class="projects d-flex flex-column align-items-center justify-content-center container py-5 my-5">
     <div class="row g-4 justify-content-center">
